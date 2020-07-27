@@ -1,0 +1,147 @@
+{
+    "author":"David Cuello",
+    "description": "Obtiene información de Codigo QR, Crea codigo QR",
+    "disclaimer":"THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
+    "version":"1.1",
+    "license": "MIT",
+    "homepage":"http://rocketbot.co/",
+    "linux": true,
+    "windows":true,
+    "mac":true,
+    "docker":true,
+    "name": "QRReadCreate",
+    "dependencies": {
+        "cv2": "4.2.0"
+    },
+      "title": {
+        "en": "Create and read QR code",
+        "es": "Crea y lee códigos QR",
+        "cn": "Create and read QR code"
+    },
+    "icon":"data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PHBhdGggZD0ibTAgMGg1MTJ2NTEyaC01MTJ6IiBmaWxsPSIjZjNmNmZmIi8+PHBhdGggZD0ibTI1NiAwaDI1NnY1MTJoLTI1NnoiIGZpbGw9IiNjZGRiZjkiLz48cGF0aCBkPSJtMzAgODMuODU3aC0zMHYtODMuODU3aDgzLjg1N3YzMGgtNTMuODU3eiIgZmlsbD0iIzNjNGE4MyIvPjxwYXRoIGQ9Im01MTIgODMuODU3aC0zMHYtNTMuODU3aC01My44NTd2LTMwaDgzLjg1N3oiIGZpbGw9IiMyYTM4NmIiLz48cGF0aCBkPSJtODMuODU3IDUxMmgtODMuODU3di04My44NTdoMzB2NTMuODU3aDUzLjg1N3oiIGZpbGw9IiMzYzRhODMiLz48cGF0aCBkPSJtNTEyIDUxMmgtODMuODU3di0zMGg1My44NTd2LTUzLjg1N2gzMHoiIGZpbGw9IiMyYTM4NmIiLz48ZyBmaWxsPSIjNjBlMmY0Ij48cGF0aCBkPSJtMjM2LjU3MSAyMzYuNTcxaC0xNjcuNzE0di0xNjcuNzE0aDE2Ny43MTR6bS0xMzcuNzE0LTMwaDEwNy43MTR2LTEwNy43MTRoLTEwNy43MTR6Ii8+PHBhdGggZD0ibTIzNi41NzEgNDQzLjE0M2gtMTY3LjcxNHYtMTY3LjcxNGg5OC44NTd2NjguODU3aDM4Ljg1N3YtNTMuODU3aDMwem0tMTM3LjcxNC0zMGgxMDcuNzE0di0zOC44NTZoLTY4Ljg1N3YtNjguODU3aC0zOC44NTd6Ii8+PHBhdGggZD0ibTEzNy43MTQgMTM3LjcxNGgzMHYzMGgtMzB6Ii8+PC9nPjxwYXRoIGQ9Im0yNzUuNDI5IDY4Ljg1N3Y5OC42NDNoMzB2LTY4LjY0M2gzOC44NTd2NjguODU2aDY4Ljg1NnYzOC44NTdoLTEzNy43MDV2MzBoMTY3LjcwNXYtMTY3LjcxM3ptMTM3LjcxNCA2OC44NTdoLTM4Ljg1NnYtMzguODU3aDM4Ljg1NnoiIGZpbGw9IiMyOWM1ZWMiLz48cGF0aCBkPSJtMjc1LjQyOSAyNzUuNDI5djE2Ny43MTRoMTY3LjcxNHYtMTY3LjcxNHptMzAgMzBoMTA3LjcxNHYzOC44NTdoLTY4Ljg1NnY2OC44NTZoLTM4Ljg1N3YtMTA3LjcxM3ptNjguODU3IDEwNy43MTR2LTM4Ljg1NmgzOC44NTZ2MzguODU2eiIgZmlsbD0iIzI5YzVlYyIvPjwvZz48L3N2Zz4=",
+    "children": [
+
+        {
+            "en": {
+                "title": "ReadQR",
+                "description": "Read QR from Png File",
+                "title_options": "",
+                "options":null
+            },
+            "es": {
+                "title": "ReadQR",
+                "description": "Lee un código QR a partir de un archivo PNG",
+                "title_options": "Seleccione una opción",
+                "options": null
+            },
+            "form": {
+                "css": "modal-lg",
+                "inputs": [
+
+                    {
+                        "type": "file_select",
+                        "placeholder": {
+                            "es": "C:/Users/usuario/Desktop/archivo.png",
+                            "en": "Path",
+                            "cn": "Path"
+                        },
+                        "title": {
+                            "es": "Ruta del QR en PNG ",
+                            "en": "Path to QR PNG file"
+                        },
+                        "id": "path",
+                        "css": "col-md-12"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder": {
+                            "es": "variable",
+                            "en": "var"
+                        },
+                        "title": {
+                            "es": "Asignar resultado a variable",
+                            "en": "Result to var "
+                        },
+                           "help": {
+                            "es": "La variable debe ir sin {}",
+                            "en": "write a variable name without {}"
+                        },
+                        "id": "result",
+                        "remove_vars": true,
+                        "css": "col-md-12"
+                    }
+                ]
+            },
+            "video_youtube": "",
+            "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PHBhdGggZD0ibTAgMGg1MTJ2NTEyaC01MTJ6IiBmaWxsPSIjZjNmNmZmIi8+PHBhdGggZD0ibTI1NiAwaDI1NnY1MTJoLTI1NnoiIGZpbGw9IiNjZGRiZjkiLz48cGF0aCBkPSJtMzAgODMuODU3aC0zMHYtODMuODU3aDgzLjg1N3YzMGgtNTMuODU3eiIgZmlsbD0iIzNjNGE4MyIvPjxwYXRoIGQ9Im01MTIgODMuODU3aC0zMHYtNTMuODU3aC01My44NTd2LTMwaDgzLjg1N3oiIGZpbGw9IiMyYTM4NmIiLz48cGF0aCBkPSJtODMuODU3IDUxMmgtODMuODU3di04My44NTdoMzB2NTMuODU3aDUzLjg1N3oiIGZpbGw9IiMzYzRhODMiLz48cGF0aCBkPSJtNTEyIDUxMmgtODMuODU3di0zMGg1My44NTd2LTUzLjg1N2gzMHoiIGZpbGw9IiMyYTM4NmIiLz48ZyBmaWxsPSIjNjBlMmY0Ij48cGF0aCBkPSJtMjM2LjU3MSAyMzYuNTcxaC0xNjcuNzE0di0xNjcuNzE0aDE2Ny43MTR6bS0xMzcuNzE0LTMwaDEwNy43MTR2LTEwNy43MTRoLTEwNy43MTR6Ii8+PHBhdGggZD0ibTIzNi41NzEgNDQzLjE0M2gtMTY3LjcxNHYtMTY3LjcxNGg5OC44NTd2NjguODU3aDM4Ljg1N3YtNTMuODU3aDMwem0tMTM3LjcxNC0zMGgxMDcuNzE0di0zOC44NTZoLTY4Ljg1N3YtNjguODU3aC0zOC44NTd6Ii8+PHBhdGggZD0ibTEzNy43MTQgMTM3LjcxNGgzMHYzMGgtMzB6Ii8+PC9nPjxwYXRoIGQ9Im0yNzUuNDI5IDY4Ljg1N3Y5OC42NDNoMzB2LTY4LjY0M2gzOC44NTd2NjguODU2aDY4Ljg1NnYzOC44NTdoLTEzNy43MDV2MzBoMTY3LjcwNXYtMTY3LjcxM3ptMTM3LjcxNCA2OC44NTdoLTM4Ljg1NnYtMzguODU3aDM4Ljg1NnoiIGZpbGw9IiMyOWM1ZWMiLz48cGF0aCBkPSJtMjc1LjQyOSAyNzUuNDI5djE2Ny43MTRoMTY3LjcxNHYtMTY3LjcxNHptMzAgMzBoMTA3LjcxNHYzOC44NTdoLTY4Ljg1NnY2OC44NTZoLTM4Ljg1N3YtMTA3LjcxM3ptNjguODU3IDEwNy43MTR2LTM4Ljg1NmgzOC44NTZ2MzguODU2eiIgZmlsbD0iIzI5YzVlYyIvPjwvZz48L3N2Zz4=",
+            "module": "QRRead",
+            "module_name": "QRReadCreate",
+            "visible": true,
+            "options": false,
+            "father": "module",
+            "group": "scripts",
+            "linux": true,
+            "windows":true,
+            "mac":true,
+            "docker":true
+        },{
+            "en": {
+                "title": "CreateQR",
+                "description": "Create QR and save to Png File",
+                "title_options": "",
+                "options":null
+            },
+            "es": {
+                "title": "CreateQR",
+                "description": "Crea un código QR y lo guarda en un archivo PNG",
+                "title_options": "Seleccione una opción",
+                "options": null
+            },
+            "form": {
+                "css": "modal-lg",
+                "inputs": [
+
+                    {
+                        "type": "file_new",
+                        "placeholder": {
+                            "es": "C:/Users/usuario/Desktop/archivo.png",
+                            "en": "Path",
+                            "cn": "Path"
+                        },
+                        "title": {
+                            "es": "Ruta del PNG donde almacenar el QR",
+                            "en": "Path to QR PNG file output"
+                        },
+                        "id": "path",
+                        "css": "col-md-12"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder": {
+                            "es": "texto en QR",
+                            "en": "text on QR"
+                        },
+                        "title": {
+                            "es": "Escriba el texto del QR",
+                            "en": "Text to generate QR Code"
+                        },
+                        "id": "text",
+                        "css": "col-md-12"
+                    }
+                ]
+            },
+            "video_youtube": "",
+            "icon": "data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PHBhdGggZD0ibTAgMGg1MTJ2NTEyaC01MTJ6IiBmaWxsPSIjZjNmNmZmIi8+PHBhdGggZD0ibTI1NiAwaDI1NnY1MTJoLTI1NnoiIGZpbGw9IiNjZGRiZjkiLz48cGF0aCBkPSJtMzAgODMuODU3aC0zMHYtODMuODU3aDgzLjg1N3YzMGgtNTMuODU3eiIgZmlsbD0iIzNjNGE4MyIvPjxwYXRoIGQ9Im01MTIgODMuODU3aC0zMHYtNTMuODU3aC01My44NTd2LTMwaDgzLjg1N3oiIGZpbGw9IiMyYTM4NmIiLz48cGF0aCBkPSJtODMuODU3IDUxMmgtODMuODU3di04My44NTdoMzB2NTMuODU3aDUzLjg1N3oiIGZpbGw9IiMzYzRhODMiLz48cGF0aCBkPSJtNTEyIDUxMmgtODMuODU3di0zMGg1My44NTd2LTUzLjg1N2gzMHoiIGZpbGw9IiMyYTM4NmIiLz48ZyBmaWxsPSIjNjBlMmY0Ij48cGF0aCBkPSJtMjM2LjU3MSAyMzYuNTcxaC0xNjcuNzE0di0xNjcuNzE0aDE2Ny43MTR6bS0xMzcuNzE0LTMwaDEwNy43MTR2LTEwNy43MTRoLTEwNy43MTR6Ii8+PHBhdGggZD0ibTIzNi41NzEgNDQzLjE0M2gtMTY3LjcxNHYtMTY3LjcxNGg5OC44NTd2NjguODU3aDM4Ljg1N3YtNTMuODU3aDMwem0tMTM3LjcxNC0zMGgxMDcuNzE0di0zOC44NTZoLTY4Ljg1N3YtNjguODU3aC0zOC44NTd6Ii8+PHBhdGggZD0ibTEzNy43MTQgMTM3LjcxNGgzMHYzMGgtMzB6Ii8+PC9nPjxwYXRoIGQ9Im0yNzUuNDI5IDY4Ljg1N3Y5OC42NDNoMzB2LTY4LjY0M2gzOC44NTd2NjguODU2aDY4Ljg1NnYzOC44NTdoLTEzNy43MDV2MzBoMTY3LjcwNXYtMTY3LjcxM3ptMTM3LjcxNCA2OC44NTdoLTM4Ljg1NnYtMzguODU3aDM4Ljg1NnoiIGZpbGw9IiMyOWM1ZWMiLz48cGF0aCBkPSJtMjc1LjQyOSAyNzUuNDI5djE2Ny43MTRoMTY3LjcxNHYtMTY3LjcxNHptMzAgMzBoMTA3LjcxNHYzOC44NTdoLTY4Ljg1NnY2OC44NTZoLTM4Ljg1N3YtMTA3LjcxM3ptNjguODU3IDEwNy43MTR2LTM4Ljg1NmgzOC44NTZ2MzguODU2eiIgZmlsbD0iIzI5YzVlYyIvPjwvZz48L3N2Zz4=",
+            "module": "QRCreate",
+            "module_name": "QRReadCreate",
+            "visible": true,
+            "options": false,
+            "father": "module",
+            "group": "scripts",
+            "linux": true,
+            "windows":true,
+            "mac":true,
+            "docker":true
+        }
+    ]
+}
