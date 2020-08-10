@@ -61,3 +61,25 @@ if module == "QRCreate":
     except Exception as e:
         PrintException()
         raise e
+
+if module == "readBarcode":
+    from pyzbar import pyzbar
+    import argparse
+    import cv2
+
+    path = GetParams("path")
+    result = GetParams("result")
+    # load the input image
+    image = cv2.imread(path)
+
+    # find the barcodes in the image and decode each of the barcodes
+    barcodes = pyzbar.decode(image)
+    # loop over the detected barcodes
+    text = ""
+    for barcode in barcodes:
+        barcodeData = barcode.data.decode("utf-8")
+        barcodeType = barcode.type
+        text += barcodeData
+
+    # Set variable
+    SetVar(result, text)
