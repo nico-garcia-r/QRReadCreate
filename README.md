@@ -24,6 +24,10 @@
     <strong>
       <a href="https://pypi.org/project/opencv-python/">opencv-python</a>
     </strong> 
+  </li><li>
+    <strong>
+      <a href="https://pypi.org/project/pyzbar/">pyzbar</a>
+    </strong> 
   </li>  
 </ul>  
 
