@@ -4,10 +4,16 @@
 ## Commands
 
 <ul>
-<li>ReadQR</li><li>CreateQR</li>
+<li>ReadQR</li>
+<li>CreateQR</li>
+<li>Read Barcode</li>
 </ul>
 
 ![alt text](https://raw.githubusercontent.com/rocketbot-cl/QRReadCreate/master/example/Qr_Rocketbot.png)
+
+## Updates
+### 10-Aug-2020
+- Read Barcode
 
 ![alt text](https://raw.githubusercontent.com/rocketbot-cl/QRReadCreate/master/example/qr.png)
 

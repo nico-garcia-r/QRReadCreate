@@ -145,7 +145,7 @@
         },
         {
             "en": {
-                "title": "ReadBarcode",
+                "title": "Read Barcode",
                 "description": "Read Barcode from Png File",
                 "title_options": "",
                 "options":null
