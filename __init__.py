@@ -23,6 +23,9 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
     pip install <package> -t .
 
 """
+import os
+import sys
+
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + 'modules' + os.sep + 'QRReadCreate' + os.sep + 'libs' + os.sep
 sys.path.append(cur_path)
@@ -33,6 +36,39 @@ sys.path.append(cur_path)
 module = GetParams("module")
 
 """
+    Funciones
+"""
+def read_qr_code(filename):
+    import cv2
+
+    img = cv2.imread(filename)
+    detect = cv2.QRCodeDetector()
+    value, points, straight_qrcode = detect.detectAndDecode(img)
+
+    return value
+
+def create_qr_code(data, filename):
+    import qrcode
+    img = qrcode.make(data)
+    img.save(filename)
+    
+def read_bar_code(filename):
+    import cv2
+    from pyzbar.pyzbar import decode
+
+    img = cv2.imread(filename)
+    barcodes = decode(img)
+
+    text = ""
+    for barcode in barcodes:
+        barcodeData = barcode.data.decode("utf-8")
+        barcodeType = barcode.type
+        text += barcodeData
+    
+    return text
+
+
+"""
     Obtengo variables
 """
 if module == "QRRead":
@@ -40,12 +76,13 @@ if module == "QRRead":
     path = GetParams('path')
     res = GetParams('result')
     try:
-        import cv2
-        img = cv2.imread(path)
-        detector = cv2.QRCodeDetector()
-        data, bbox, _ = detector.detectAndDecode(img)
-        print(data, "\n", bbox)
-        SetVar(res, data)
+        
+        data = read_qr_code(path)
+        if data:
+            SetVar(res, data)
+        else:
+            SetVar(res, "QR code cannot be read")   
+
     except Exception as e:
         PrintException()
         raise e
@@ -53,33 +90,21 @@ if module == "QRRead":
 if module == "QRCreate":
     path = GetParams("path")
     text = GetParams("text")
+    
     try:
-        import qrcode
-        import PIL
-        img = qrcode.make(text)
-        img.save(path)
+        create_qr_code(text, path)
     except Exception as e:
         PrintException()
         raise e
 
 if module == "readBarcode":
-    from pyzbar import pyzbar
-    import argparse
-    import cv2
-
     path = GetParams("path")
     result = GetParams("result")
-    # load the input image
-    image = cv2.imread(path)
+    
+    try:
+        text = read_bar_code(path)
+    except Exception as e:
+        PrintException()
+        raise e
 
-    # find the barcodes in the image and decode each of the barcodes
-    barcodes = pyzbar.decode(image)
-    # loop over the detected barcodes
-    text = ""
-    for barcode in barcodes:
-        barcodeData = barcode.data.decode("utf-8")
-        barcodeType = barcode.type
-        text += barcodeData
-
-    # Set variable
     SetVar(result, text)
