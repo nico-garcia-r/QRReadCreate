@@ -1,25 +1,25 @@
-# Create and read QR code
+# Crea y lee códigos QR
   
-Module to create and read QR code 
+Módulo para crear y leer códigos QR 
 
 *Read this in other languages: [English](README.md), [Portugues](README.pr.md), [Español](README.es.md).*
 
-## How to install this module
+## Como instalar este módulo
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
+__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Rocketbot.  
 
 
 ## Overview
 
 
 1. ReadQR  
-Read a QR code from a PNG file
+Lee un código QR a partir de un archivo PNG
 
 2. CreateQR  
-Create a QR code and save it to a PNG file
+Crea un código QR y lo guarda en un archivo PNG
 
-3. Barcode reader  
-Read a barcode from a PNG file  
+3. Lector de códigos de barras  
+Lee un código de barras a partir de un archivo PNG  
 
 
 
