@@ -102,7 +102,11 @@ if module == "readBarcode":
     result = GetParams("result")
     
     try:
+        if path.endswith('.gif'):
+            SetVar(result, "Barcode cannot be read")
+            raise Exception("Barcode cannot be read from gif file. Please convert to jpg or png")
         text = read_bar_code(path)
+        
     except Exception as e:
         PrintException()
         raise e
