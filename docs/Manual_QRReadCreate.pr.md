@@ -31,7 +31,7 @@ Cria um código QR e salva em um arquivo PNG
 
 ### Leitor de código de barras
   
-Leia um código de barras de um arquivo PNG
+Leia um código de barras de um arquivo PNG ou JPG
 |Parâmetros|Descrição|exemplo|
 | --- | --- | --- |
 |Caminho do arquivo PNG|Caminho do arquivo PNG com o código de barras|C:/Users/usuario/Desktop/arquivo.png|

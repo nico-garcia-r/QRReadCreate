@@ -19,7 +19,7 @@ Lê um código QR a partir de um arquivo PNG
 Cria um código QR e salva em um arquivo PNG
 
 3. Leitor de código de barras  
-Leia um código de barras de um arquivo PNG  
+Leia um código de barras de um arquivo PNG ou JPG 
 
 
 

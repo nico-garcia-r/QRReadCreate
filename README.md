@@ -19,7 +19,7 @@ Read a QR code from a PNG file
 Create a QR code and save it to a PNG file
 
 3. Barcode reader  
-Read a barcode from a PNG file  
+Read a barcode from a PNG or JPG file  
 
 
 
