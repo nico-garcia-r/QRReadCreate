@@ -2,7 +2,7 @@
     "author":"David Cuello - Nicolas Garcia",
     "description": "Módulo para crear y leer códigos QR",
     "disclaimer":"THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-    "version":"2.1.0",
+    "version":"2.1.1",
     "license": "MIT",
     "homepage":"http://rocketbot.co/",
     "linux": true,
@@ -184,19 +184,19 @@
         {
             "es": {
                 "title": "Lector de códigos de barras",
-                "description": "Lee un código de barras a partir de un archivo PNG",
+                "description": "Lee un código de barras a partir de un archivo PNG o JPG",
                 "title_options": "Seleccione una opción",
                 "options": null
             },
             "en": {
                 "title": "Barcode reader",
-                "description": "Read a barcode from a PNG file",
+                "description": "Read a barcode from a PNG or JPG file",
                 "title_options": "Select an option",
                 "options":null
             },
             "pr": {
                 "title": "Leitor de código de barras",
-                "description": "Leia um código de barras de um arquivo PNG",
+                "description": "Leia um código de barras de um arquivo PNG ou JPG",
                 "title_options": "Selecione uma opção",
                 "options":null
             },

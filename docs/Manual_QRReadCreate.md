@@ -31,7 +31,7 @@ Create a QR code and save it to a PNG file
 
 ### Barcode reader
   
-Read a barcode from a PNG file
+Read a barcode from a PNG or JPG file
 |Parameters|Description|example|
 | --- | --- | --- |
 |PNG file path|PNG file path with the barcode|C:/Users/user/Desktop/file.png|
