@@ -67,6 +67,34 @@ def read_bar_code(filename):
     
     return text
 
+def read_pdf417(path, data=None):
+    
+    # from PIL import Image as PIL
+    # from pdf417decoder import PDF417Decoder
+    
+    # image = PIL.open(path)
+    # decoder = PDF417Decoder(image)
+    
+    # print(decoder.barcodes_info())
+    
+    # if (decoder.decode() > 0):
+    #     decoded = decoder.barcode_data_index_to_string(0)
+    #     return decoded
+    
+    from zxing import BarCodeReader
+    
+    reader = BarCodeReader()
+    barcode = {
+        'raw': reader.decode(path).raw,
+        'parsed': reader.decode(path).parsed,
+        'path': reader.decode(path).path,
+        'format': reader.decode(path).format,
+        'type': reader.decode(path).type,
+        'point': reader.decode(path).points
+        }
+    
+    return barcode
+    
 
 """
     Obtengo variables
@@ -112,3 +140,16 @@ if module == "readBarcode":
         raise e
 
     SetVar(result, text)
+    
+if module == "read_pdf417":
+    path = GetParams("path")
+    result = GetParams("result")
+    data = GetParams("data")
+        
+    try:
+        info = read_pdf417(path)
+    except Exception as e:
+        PrintException()
+        raise e
+
+    SetVar(result, info)

@@ -9,8 +9,6 @@ Módulo para crear y leer códigos QR
   
 __Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Rocketbot.  
 
-
-
 ## Descripción de los comandos
 
 ### ReadQR
@@ -32,6 +30,15 @@ Crea un código QR y lo guarda en un archivo PNG
 ### Lector de códigos de barras
   
 Lee un código de barras a partir de un archivo PNG o JPG
+|Parámetros|Descripción|ejemplo|
+| --- | --- | --- |
+|Ruta del archivo PNG|Ruta del archivo PNG con el código de barras|C:/Users/usuario/Desktop/archivo.png|
+|Asignar resultado a variable|Asigna el resultado del código de barras a una variable|variable|
+
+### Lector de códigos de barras PDF417
+  
+Lee un código de barras PDF417 a partir de un archivo de imagen. IMPORTANTE: Es necesario tener Java instalado para su 
+uso.
 |Parámetros|Descripción|ejemplo|
 | --- | --- | --- |
 |Ruta del archivo PNG|Ruta del archivo PNG con el código de barras|C:/Users/usuario/Desktop/archivo.png|

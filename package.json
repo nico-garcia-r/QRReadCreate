@@ -1,8 +1,8 @@
 {
-    "author":"David Cuello - Nicolas Garcia",
-    "description": "Módulo para crear y leer códigos QR",
+    "author":"David Cuello - Nicolas Garcia - Juan Siro",
+    "description": "Module to create and read QR code",
     "disclaimer":"THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-    "version":"2.1.1",
+    "version":"2.2.0",
     "license": "MIT",
     "homepage":"http://rocketbot.co/",
     "linux": true,
@@ -12,7 +12,8 @@
     "name": "QRReadCreate",
     "dependencies": {
         "cv2": "4.2.0",
-        "pyzbar": "0.1.8"
+        "pyzbar": "0.1.8",
+        "zxing": "0.14"
     },
       "title": {
         "en": "Create and read QR code",
@@ -254,6 +255,89 @@
             "video_youtube": "",
             "icon": "data:image/svg+xml;utf8;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTEzLjM3IDUxMy4zNyIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTMuMzcgNTEzLjM3IiB3aWR0aD0iNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnPjxnPjxwYXRoIGQ9Im00OTcuNjkxIDE1OS44MThjLTguMjg0IDAtMTUtNi43MTYtMTUtMTV2LTExNC44MThoLTEwNS44Yy04LjI4NCAwLTE1LTYuNzE2LTE1LTE1czYuNzE2LTE1IDE1LTE1aDEyMC44MDFjOC4yODQgMCAxNSA2LjcxNiAxNSAxNXYxMjkuODE4Yy0uMDAxIDguMjg1LTYuNzE2IDE1LTE1LjAwMSAxNXoiIGZpbGw9IiMxNDE0NjYiLz48L2c+PGc+PHBhdGggZD0ibTE1Ljc3IDE1MC44MDFjLTguMjg0IDAtMTUtNi43MTYtMTUtMTV2LTEyMC44MDFjMC04LjI4NCA2LjcxNi0xNSAxNS0xNWgxMjkuODE4YzguMjg0IDAgMTUgNi43MTYgMTUgMTVzLTYuNzE2IDE1LTE1IDE1aC0xMTQuODE4djEwNS44MDFjMCA4LjI4NC02LjcxNiAxNS0xNSAxNXoiIGZpbGw9IiMwMTJmN2UiLz48L2c+PGc+PHBhdGggZD0ibTEzNi40NzkgNTEzLjM3aC0xMjAuOGMtOC4yODQgMC0xNS02LjcxNi0xNS0xNXYtMTI5LjgxOGMwLTguMjg0IDYuNzE2LTE1IDE1LTE1czE1IDYuNzE2IDE1IDE1djExNC44MThoMTA1LjgwMWM4LjI4NCAwIDE1IDYuNzE2IDE1IDE1cy02LjcxNiAxNS0xNS4wMDEgMTV6IiBmaWxsPSIjMDEyZjdlIi8+PC9nPjxwYXRoIGQ9Im03NS41NjkgMzEyLjloMTIxLjIyN3YxMjQuMDA4aC0xMjEuMjI3eiIgZmlsbD0iI2U2ZmZmZiIvPjxwYXRoIGQ9Im0xOTYuNzU3IDQ1MS45MzktMTIxLjIyNy0uMDYyYy04LjI4NC0uMDA0LTE0Ljk5Ny02LjcyNC0xNC45OTItMTUuMDA4bC4wNjMtMTI0LjAwOGMuMDA0LTguMjg0IDYuNzIzLTE0Ljk5NyAxNS4wMDgtMTQuOTkybDEyMS4yMjguMDYyYzguMjg0LjAwNCAxNC45OTcgNi43MjMgMTQuOTkyIDE1LjAwOGwtLjA2MyAxMjQuMDA4Yy0uMDA2IDguMjg0LTYuNzI1IDE0Ljk5Ni0xNS4wMDkgMTQuOTkyem0tMTA2LjIxMi0zMC4wNTQgOTEuMjI4LjA0Ny4wNDgtOTQuMDA4LTkxLjIyOC0uMDQ3eiIgZmlsbD0iIzAxMmY3ZSIvPjxnPjxwYXRoIGQ9Im0xOTYuODU3IDI3MC45MTVoLTMyLjE2NmMtOC4yODQgMC0xNS02LjcxNi0xNS0xNXM2LjcxNi0xNSAxNS0xNWgzMi4xNjZjOC4yODQgMCAxNSA2LjcxNiAxNSAxNXMtNi43MTUgMTUtMTUgMTV6IiBmaWxsPSIjMDEyZjdlIi8+PC9nPjxnPjxwYXRoIGQ9Im0xMDcuNDc4IDI3MC45MTVoLTMxLjg0OGMtOC4yODQgMC0xNS02LjcxNi0xNS0xNXM2LjcxNi0xNSAxNS0xNWgzMS44NDhjOC4yODQgMCAxNSA2LjcxNiAxNSAxNXMtNi43MTYgMTUtMTUgMTV6IiBmaWxsPSIjMDEyZjdlIi8+PC9nPjxnPjxwYXRoIGQ9Im0yNTYuNzQyIDIxMy42ODRjLTguMjg0IDAtMTUtNi43MTYtMTUtMTV2LTEyNC4wMDhjMC04LjI4NCA2LjcxNi0xNSAxNS0xNXMxNSA2LjcxNiAxNSAxNXYxMjQuMDA4YzAgOC4yODQtNi43MTYgMTUtMTUgMTV6IiBmaWxsPSIjMDEyZjdlIi8+PC9nPjxwYXRoIGQ9Im03NS42OTEgNzQuNjE0aDEyMS4yMjd2MTI0LjAwOGgtMTIxLjIyN3oiIGZpbGw9IiNlNmZmZmYiLz48cGF0aCBkPSJtMTk2Ljg3OSAyMTMuNjUzLTEyMS4yMjgtLjA2MmMtOC4yODQtLjAwNC0xNC45OTctNi43MjMtMTQuOTkyLTE1LjAwOGwuMDYzLTEyNC4wMDhjLjAwNC04LjI4NCA2LjcyMy0xNC45OTcgMTUuMDA4LTE0Ljk5MmwxMjEuMjI4LjA2MmM4LjI4NC4wMDQgMTQuOTk3IDYuNzIzIDE0Ljk5MiAxNS4wMDhsLS4wNjMgMTI0LjAwOGMtLjAwNSA4LjI4NC02LjcyNCAxNC45OTYtMTUuMDA4IDE0Ljk5MnptLTEwNi4yMTItMzAuMDU0IDkxLjIyOC4wNDcuMDQ4LTk0LjAwOC05MS4yMjgtLjA0N3oiIGZpbGw9IiMwMTJmN2UiLz48cGF0aCBkPSJtMzE2LjkwOCA3NC43MzhoMTIxLjIyN3YxMjQuMDA4aC0xMjEuMjI3eiIgZmlsbD0iI2NmZiIvPjxwYXRoIGQ9Im00MzguMDk2IDIxMy43NzYtMTIxLjIyNy0uMDYyYy04LjI4NC0uMDA0LTE0Ljk5Ny02LjcyMy0xNC45OTItMTUuMDA4bC4wNjMtMTI0LjAwOGMuMDA0LTguMjg0IDYuNzIzLTE0Ljk5NyAxNS4wMDgtMTQuOTkybDEyMS4yMjcuMDYyYzguMjg0LjAwNCAxNC45OTcgNi43MjMgMTQuOTkyIDE1LjAwOGwtLjA2MyAxMjQuMDA4Yy0uMDA1IDguMjg0LTYuNzI0IDE0Ljk5Ny0xNS4wMDggMTQuOTkyem0tMTA2LjIxMS0zMC4wNTQgOTEuMjI3LjA0Ny4wNDgtOTQuMDA4LTkxLjIyNy0uMDQ3eiIgZmlsbD0iIzE0MTQ2NiIvPjxnPjxwYXRoIGQ9Im0xNDcuNzk2IDM5NC45MjdoLTIzLjEwNGMtNC4zOTcgMC03Ljk2Mi0zLjU2NS03Ljk2Mi03Ljk2MnYtMjMuOTk5YzAtNC4zOTcgMy41NjUtNy45NjIgNy45NjItNy45NjJoMjMuMTA0YzQuMzk3IDAgNy45NjIgMy41NjUgNy45NjIgNy45NjJ2MjMuOTk5YzAgNC4zOTgtMy41NjUgNy45NjItNy45NjIgNy45NjJ6IiBmaWxsPSIjMDEyZjdlIi8+PC9nPjxwYXRoIGQ9Im00OTcuNjAxIDM2Mi41NjljLTguMjg0IDAtMTUgNi43MTYtMTUgMTV2MTA1LjgwMWgtMTE0LjgxOWMtOC4yODQgMC0xNSA2LjcxNi0xNSAxNXM2LjcxNiAxNSAxNSAxNWgxMjkuODE4YzguMjg0IDAgMTUtNi43MTYgMTUtMTV2LTEyMC44MDFjLjAwMS04LjI4NC02LjcxNS0xNS0xNC45OTktMTV6IiBmaWxsPSIjMTQxNDY2Ii8+PHBhdGggZD0ibTQ1My4wNzQgNDM2Ljk3di03MS42NjZjMC04LjI4NC02LjcxNi0xNS0xNS0xNWgtNzMuNjc3di0yNi4wNjJjMC04LjI4NC02LjcxNi0xNS0xNS0xNWgtNzcuNjU1di0zOC4zMjdoMTEzLjIzMnYyMC4wNjFjMCA4LjI4NCA2LjcxNiAxNSAxNSAxNXMxNS02LjcxNiAxNS0xNXYtMjAuMDYxaDIzLjFjOC4yODQgMCAxNS02LjcxNiAxNS0xNXMtNi43MTYtMTUtMTUtMTVoLTE4MS4zMzJjLTguMjg0IDAtMTUgNi43MTYtMTUgMTV2MTgwLjM2OGMwIDguMjg0IDYuNzE2IDE1IDE1IDE1czE1LTYuNzE2IDE1LTE1di0zNy44MWgyNC4yODNjOC4yODQgMCAxNS02LjcxNiAxNS0xNXMtNi43MTYtMTUtMTUtMTVoLTI0LjI4M3YtMjkuMjMxaDYyLjY1NXYyNi4wNjJjMCA4LjI4NCA2LjcxNiAxNSAxNSAxNWg3My42Nzd2NDEuNjY2aC0xMTIuOTEyYy04LjI4NCAwLTE1IDYuNzE2LTE1IDE1czYuNzE2IDE1IDE1IDE1aDEyNy45MTJjOC4yODQgMCAxNS02LjcxNiAxNS0xNXoiIGZpbGw9IiMwMTJmN2UiLz48Zz48cGF0aCBkPSJtMTQ3Ljc5NiAxNTYuNjQxaC0yMy4xMDRjLTQuMzk3IDAtNy45NjItMy41NjUtNy45NjItNy45NjJ2LTIzLjk5OWMwLTQuMzk3IDMuNTY1LTcuOTYyIDcuOTYyLTcuOTYyaDIzLjEwNGM0LjM5NyAwIDcuOTYyIDMuNTY1IDcuOTYyIDcuOTYydjIzLjk5OWMwIDQuMzk4LTMuNTY1IDcuOTYyLTcuOTYyIDcuOTYyeiIgZmlsbD0iIzAxMmY3ZSIvPjwvZz48Zz48cGF0aCBkPSJtMzg5LjAxMyAxNTcuMjgyaC0yMy4xMDRjLTQuMzk3IDAtNy45NjItMy41NjUtNy45NjItNy45NjJ2LTIzLjk5OWMwLTQuMzk3IDMuNTY1LTcuOTYyIDcuOTYyLTcuOTYyaDIzLjEwNGM0LjM5NyAwIDcuOTYyIDMuNTY1IDcuOTYyIDcuOTYydjIzLjk5OWMwIDQuMzk4LTMuNTY1IDcuOTYyLTcuOTYyIDcuOTYyeiIgZmlsbD0iIzE0MTQ2NiIvPjwvZz48ZyBmaWxsPSIjMTQxNDY2Ij48cGF0aCBkPSJtMjU2Ljc0MiA1OS42NzZjLS4zMjUgMC0uNjQyLjAyOC0uOTYxLjA0OXYxNTMuOTExYy4zMTkuMDIuNjM3LjA0OS45NjEuMDQ5IDguMjg0IDAgMTUtNi43MTYgMTUtMTV2LTEyNC4wMDljMC04LjI4NC02LjcxNi0xNS0xNS0xNXoiLz48cGF0aCBkPSJtMzk5Ljk3NSAzMDUuOTc2YzguMjg0IDAgMTUtNi43MTYgMTUtMTV2LTIwLjA2MWgyMy4xYzguMjg0IDAgMTUtNi43MTYgMTUtMTVzLTYuNzE2LTE1LTE1LTE1aC0xODEuMzMzYy0uMzI1IDAtLjY0Mi4wMjgtLjk2MS4wNDl2MjEwLjI3MWMuMzIuMDIuNjM3LjA0OC45NjEuMDQ4IDguMjg0IDAgMTUtNi43MTYgMTUtMTV2LTM3LjgxaDI0LjI4M2M4LjI4NCAwIDE1LTYuNzE2IDE1LTE1cy02LjcxNi0xNS0xNS0xNWgtMjQuMjgzdi0yOS4yMzFoNjIuNjU1djI2LjA2MWMwIDguMjg0IDYuNzE2IDE1IDE1IDE1aDczLjY3N3Y0MS42NjZoLTExMi45MTJjLTguMjg0IDAtMTUgNi43MTYtMTUgMTVzNi43MTYgMTUgMTUgMTVoMTI3LjkxMmM4LjI4NCAwIDE1LTYuNzE2IDE1LTE1di03MS42NjZjMC04LjI4NC02LjcxNi0xNS0xNS0xNWgtNzMuNjc3di0yNi4wNjJjMC04LjI4NC02LjcxNi0xNS0xNS0xNWgtNzcuNjU1di0zOC4zMjdoMTEzLjIzMnYyMC4wNjFjLjAwMSA4LjI4NSA2LjcxNiAxNS4wMDEgMTUuMDAxIDE1LjAwMXoiLz48L2c+PC9nPjwvc3ZnPg==",
             "module": "readBarcode",
+            "module_name": "QRReadCreate",
+            "visible": true,
+            "options": false,
+            "father": "module",
+            "group": "scripts",
+            "linux": true,
+            "windows":true,
+            "mac":true,
+            "docker":true
+        },
+        {
+            "es": {
+                "title": "Lector de códigos de barras PDF417",
+                "description": "Lee un código de barras PDF417 a partir de un archivo de imagen. IMPORTANTE: Es necesario tener Java instalado para su uso.",
+                "title_options": "Seleccione una opción",
+                "options": null
+            },
+            "en": {
+                "title": "PDF417 barcode reader",
+                "description": "Read a PDF417 barcode from an image file. IMPORTANT: Java must be installed to use it.",
+                "title_options": "Select an option",
+                "options":null
+            },
+            "pr": {
+                "title": "Leitor de código de barras PDF417",
+                "description": "Lê um código de barras PDF417 a partir de um arquivo de imagem. IMPORTANTE: Java deve ser instalado para o utilizar.",
+                "title_options": "Selecione uma opção",
+                "options":null
+            },
+            "form": {
+                "css": "modal-lg",
+                "inputs": [
+                    {
+                        "type": "file_select",
+                        "placeholder": {
+                            "es": "C:/Users/usuario/Desktop/archivo.png",
+                            "en": "C:/Users/user/Desktop/file.png",
+                            "pr": "C:/Users/usuario/Desktop/arquivo.png"
+                        },
+                        "title": {
+                            "es": "Ruta del archivo PNG",
+                            "en": "PNG file path",
+                            "pr": "Caminho do arquivo PNG"
+                        },
+                        "description": {
+                            "es": "Ruta del archivo PNG con el código de barras",
+                            "en": "PNG file path with the barcode",
+                            "pr": "Caminho do arquivo PNG com o código de barras"
+                        },
+                        "id": "path",
+                        "css": "col-md-12"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder": {
+                            "es": "variable",
+                            "en": "variable",
+                            "pr": "variável"
+                        },
+                        "title": {
+                            "es": "Asignar resultado a variable",
+                            "en": "Assign result to variable",
+                            "pr": "Atribuir resultado a variável"
+                        },
+                        "description": {
+                            "es": "Asigna el resultado del código de barras a una variable",
+                            "en": "Assigns the barcode result to a variable",
+                            "pr": "Atribui o resultado do código de barras a uma variável"
+                        },
+                        "help": {
+                            "es": "La variable debe ir sin {}",
+                            "en": "The variable must go without {}",
+                            "pr": "A variável deve ir sem {}"
+                        },
+                        "id": "result",
+                        "remove_vars": true,
+                        "css": "col-md-12"
+                    }
+                ]
+            },
+            "video_youtube": "",
+            "icon": "data:image/svg+xml;utf8;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTEzLjM3IDUxMy4zNyIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTMuMzcgNTEzLjM3IiB3aWR0aD0iNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnPjxnPjxwYXRoIGQ9Im00OTcuNjkxIDE1OS44MThjLTguMjg0IDAtMTUtNi43MTYtMTUtMTV2LTExNC44MThoLTEwNS44Yy04LjI4NCAwLTE1LTYuNzE2LTE1LTE1czYuNzE2LTE1IDE1LTE1aDEyMC44MDFjOC4yODQgMCAxNSA2LjcxNiAxNSAxNXYxMjkuODE4Yy0uMDAxIDguMjg1LTYuNzE2IDE1LTE1LjAwMSAxNXoiIGZpbGw9IiMxNDE0NjYiLz48L2c+PGc+PHBhdGggZD0ibTE1Ljc3IDE1MC44MDFjLTguMjg0IDAtMTUtNi43MTYtMTUtMTV2LTEyMC44MDFjMC04LjI4NCA2LjcxNi0xNSAxNS0xNWgxMjkuODE4YzguMjg0IDAgMTUgNi43MTYgMTUgMTVzLTYuNzE2IDE1LTE1IDE1aC0xMTQuODE4djEwNS44MDFjMCA4LjI4NC02LjcxNiAxNS0xNSAxNXoiIGZpbGw9IiMwMTJmN2UiLz48L2c+PGc+PHBhdGggZD0ibTEzNi40NzkgNTEzLjM3aC0xMjAuOGMtOC4yODQgMC0xNS02LjcxNi0xNS0xNXYtMTI5LjgxOGMwLTguMjg0IDYuNzE2LTE1IDE1LTE1czE1IDYuNzE2IDE1IDE1djExNC44MThoMTA1LjgwMWM4LjI4NCAwIDE1IDYuNzE2IDE1IDE1cy02LjcxNiAxNS0xNS4wMDEgMTV6IiBmaWxsPSIjMDEyZjdlIi8+PC9nPjxwYXRoIGQ9Im03NS41NjkgMzEyLjloMTIxLjIyN3YxMjQuMDA4aC0xMjEuMjI3eiIgZmlsbD0iI2U2ZmZmZiIvPjxwYXRoIGQ9Im0xOTYuNzU3IDQ1MS45MzktMTIxLjIyNy0uMDYyYy04LjI4NC0uMDA0LTE0Ljk5Ny02LjcyNC0xNC45OTItMTUuMDA4bC4wNjMtMTI0LjAwOGMuMDA0LTguMjg0IDYuNzIzLTE0Ljk5NyAxNS4wMDgtMTQuOTkybDEyMS4yMjguMDYyYzguMjg0LjAwNCAxNC45OTcgNi43MjMgMTQuOTkyIDE1LjAwOGwtLjA2MyAxMjQuMDA4Yy0uMDA2IDguMjg0LTYuNzI1IDE0Ljk5Ni0xNS4wMDkgMTQuOTkyem0tMTA2LjIxMi0zMC4wNTQgOTEuMjI4LjA0Ny4wNDgtOTQuMDA4LTkxLjIyOC0uMDQ3eiIgZmlsbD0iIzAxMmY3ZSIvPjxnPjxwYXRoIGQ9Im0xOTYuODU3IDI3MC45MTVoLTMyLjE2NmMtOC4yODQgMC0xNS02LjcxNi0xNS0xNXM2LjcxNi0xNSAxNS0xNWgzMi4xNjZjOC4yODQgMCAxNSA2LjcxNiAxNSAxNXMtNi43MTUgMTUtMTUgMTV6IiBmaWxsPSIjMDEyZjdlIi8+PC9nPjxnPjxwYXRoIGQ9Im0xMDcuNDc4IDI3MC45MTVoLTMxLjg0OGMtOC4yODQgMC0xNS02LjcxNi0xNS0xNXM2LjcxNi0xNSAxNS0xNWgzMS44NDhjOC4yODQgMCAxNSA2LjcxNiAxNSAxNXMtNi43MTYgMTUtMTUgMTV6IiBmaWxsPSIjMDEyZjdlIi8+PC9nPjxnPjxwYXRoIGQ9Im0yNTYuNzQyIDIxMy42ODRjLTguMjg0IDAtMTUtNi43MTYtMTUtMTV2LTEyNC4wMDhjMC04LjI4NCA2LjcxNi0xNSAxNS0xNXMxNSA2LjcxNiAxNSAxNXYxMjQuMDA4YzAgOC4yODQtNi43MTYgMTUtMTUgMTV6IiBmaWxsPSIjMDEyZjdlIi8+PC9nPjxwYXRoIGQ9Im03NS42OTEgNzQuNjE0aDEyMS4yMjd2MTI0LjAwOGgtMTIxLjIyN3oiIGZpbGw9IiNlNmZmZmYiLz48cGF0aCBkPSJtMTk2Ljg3OSAyMTMuNjUzLTEyMS4yMjgtLjA2MmMtOC4yODQtLjAwNC0xNC45OTctNi43MjMtMTQuOTkyLTE1LjAwOGwuMDYzLTEyNC4wMDhjLjAwNC04LjI4NCA2LjcyMy0xNC45OTcgMTUuMDA4LTE0Ljk5MmwxMjEuMjI4LjA2MmM4LjI4NC4wMDQgMTQuOTk3IDYuNzIzIDE0Ljk5MiAxNS4wMDhsLS4wNjMgMTI0LjAwOGMtLjAwNSA4LjI4NC02LjcyNCAxNC45OTYtMTUuMDA4IDE0Ljk5MnptLTEwNi4yMTItMzAuMDU0IDkxLjIyOC4wNDcuMDQ4LTk0LjAwOC05MS4yMjgtLjA0N3oiIGZpbGw9IiMwMTJmN2UiLz48cGF0aCBkPSJtMzE2LjkwOCA3NC43MzhoMTIxLjIyN3YxMjQuMDA4aC0xMjEuMjI3eiIgZmlsbD0iI2NmZiIvPjxwYXRoIGQ9Im00MzguMDk2IDIxMy43NzYtMTIxLjIyNy0uMDYyYy04LjI4NC0uMDA0LTE0Ljk5Ny02LjcyMy0xNC45OTItMTUuMDA4bC4wNjMtMTI0LjAwOGMuMDA0LTguMjg0IDYuNzIzLTE0Ljk5NyAxNS4wMDgtMTQuOTkybDEyMS4yMjcuMDYyYzguMjg0LjAwNCAxNC45OTcgNi43MjMgMTQuOTkyIDE1LjAwOGwtLjA2MyAxMjQuMDA4Yy0uMDA1IDguMjg0LTYuNzI0IDE0Ljk5Ny0xNS4wMDggMTQuOTkyem0tMTA2LjIxMS0zMC4wNTQgOTEuMjI3LjA0Ny4wNDgtOTQuMDA4LTkxLjIyNy0uMDQ3eiIgZmlsbD0iIzE0MTQ2NiIvPjxnPjxwYXRoIGQ9Im0xNDcuNzk2IDM5NC45MjdoLTIzLjEwNGMtNC4zOTcgMC03Ljk2Mi0zLjU2NS03Ljk2Mi03Ljk2MnYtMjMuOTk5YzAtNC4zOTcgMy41NjUtNy45NjIgNy45NjItNy45NjJoMjMuMTA0YzQuMzk3IDAgNy45NjIgMy41NjUgNy45NjIgNy45NjJ2MjMuOTk5YzAgNC4zOTgtMy41NjUgNy45NjItNy45NjIgNy45NjJ6IiBmaWxsPSIjMDEyZjdlIi8+PC9nPjxwYXRoIGQ9Im00OTcuNjAxIDM2Mi41NjljLTguMjg0IDAtMTUgNi43MTYtMTUgMTV2MTA1LjgwMWgtMTE0LjgxOWMtOC4yODQgMC0xNSA2LjcxNi0xNSAxNXM2LjcxNiAxNSAxNSAxNWgxMjkuODE4YzguMjg0IDAgMTUtNi43MTYgMTUtMTV2LTEyMC44MDFjLjAwMS04LjI4NC02LjcxNS0xNS0xNC45OTktMTV6IiBmaWxsPSIjMTQxNDY2Ii8+PHBhdGggZD0ibTQ1My4wNzQgNDM2Ljk3di03MS42NjZjMC04LjI4NC02LjcxNi0xNS0xNS0xNWgtNzMuNjc3di0yNi4wNjJjMC04LjI4NC02LjcxNi0xNS0xNS0xNWgtNzcuNjU1di0zOC4zMjdoMTEzLjIzMnYyMC4wNjFjMCA4LjI4NCA2LjcxNiAxNSAxNSAxNXMxNS02LjcxNiAxNS0xNXYtMjAuMDYxaDIzLjFjOC4yODQgMCAxNS02LjcxNiAxNS0xNXMtNi43MTYtMTUtMTUtMTVoLTE4MS4zMzJjLTguMjg0IDAtMTUgNi43MTYtMTUgMTV2MTgwLjM2OGMwIDguMjg0IDYuNzE2IDE1IDE1IDE1czE1LTYuNzE2IDE1LTE1di0zNy44MWgyNC4yODNjOC4yODQgMCAxNS02LjcxNiAxNS0xNXMtNi43MTYtMTUtMTUtMTVoLTI0LjI4M3YtMjkuMjMxaDYyLjY1NXYyNi4wNjJjMCA4LjI4NCA2LjcxNiAxNSAxNSAxNWg3My42Nzd2NDEuNjY2aC0xMTIuOTEyYy04LjI4NCAwLTE1IDYuNzE2LTE1IDE1czYuNzE2IDE1IDE1IDE1aDEyNy45MTJjOC4yODQgMCAxNS02LjcxNiAxNS0xNXoiIGZpbGw9IiMwMTJmN2UiLz48Zz48cGF0aCBkPSJtMTQ3Ljc5NiAxNTYuNjQxaC0yMy4xMDRjLTQuMzk3IDAtNy45NjItMy41NjUtNy45NjItNy45NjJ2LTIzLjk5OWMwLTQuMzk3IDMuNTY1LTcuOTYyIDcuOTYyLTcuOTYyaDIzLjEwNGM0LjM5NyAwIDcuOTYyIDMuNTY1IDcuOTYyIDcuOTYydjIzLjk5OWMwIDQuMzk4LTMuNTY1IDcuOTYyLTcuOTYyIDcuOTYyeiIgZmlsbD0iIzAxMmY3ZSIvPjwvZz48Zz48cGF0aCBkPSJtMzg5LjAxMyAxNTcuMjgyaC0yMy4xMDRjLTQuMzk3IDAtNy45NjItMy41NjUtNy45NjItNy45NjJ2LTIzLjk5OWMwLTQuMzk3IDMuNTY1LTcuOTYyIDcuOTYyLTcuOTYyaDIzLjEwNGM0LjM5NyAwIDcuOTYyIDMuNTY1IDcuOTYyIDcuOTYydjIzLjk5OWMwIDQuMzk4LTMuNTY1IDcuOTYyLTcuOTYyIDcuOTYyeiIgZmlsbD0iIzE0MTQ2NiIvPjwvZz48ZyBmaWxsPSIjMTQxNDY2Ij48cGF0aCBkPSJtMjU2Ljc0MiA1OS42NzZjLS4zMjUgMC0uNjQyLjAyOC0uOTYxLjA0OXYxNTMuOTExYy4zMTkuMDIuNjM3LjA0OS45NjEuMDQ5IDguMjg0IDAgMTUtNi43MTYgMTUtMTV2LTEyNC4wMDljMC04LjI4NC02LjcxNi0xNS0xNS0xNXoiLz48cGF0aCBkPSJtMzk5Ljk3NSAzMDUuOTc2YzguMjg0IDAgMTUtNi43MTYgMTUtMTV2LTIwLjA2MWgyMy4xYzguMjg0IDAgMTUtNi43MTYgMTUtMTVzLTYuNzE2LTE1LTE1LTE1aC0xODEuMzMzYy0uMzI1IDAtLjY0Mi4wMjgtLjk2MS4wNDl2MjEwLjI3MWMuMzIuMDIuNjM3LjA0OC45NjEuMDQ4IDguMjg0IDAgMTUtNi43MTYgMTUtMTV2LTM3LjgxaDI0LjI4M2M4LjI4NCAwIDE1LTYuNzE2IDE1LTE1cy02LjcxNi0xNS0xNS0xNWgtMjQuMjgzdi0yOS4yMzFoNjIuNjU1djI2LjA2MWMwIDguMjg0IDYuNzE2IDE1IDE1IDE1aDczLjY3N3Y0MS42NjZoLTExMi45MTJjLTguMjg0IDAtMTUgNi43MTYtMTUgMTVzNi43MTYgMTUgMTUgMTVoMTI3LjkxMmM4LjI4NCAwIDE1LTYuNzE2IDE1LTE1di03MS42NjZjMC04LjI4NC02LjcxNi0xNS0xNS0xNWgtNzMuNjc3di0yNi4wNjJjMC04LjI4NC02LjcxNi0xNS0xNS0xNWgtNzcuNjU1di0zOC4zMjdoMTEzLjIzMnYyMC4wNjFjLjAwMSA4LjI4NSA2LjcxNiAxNS4wMDEgMTUuMDAxIDE1LjAwMXoiLz48L2c+PC9nPjwvc3ZnPg==",
+            "module": "read_pdf417",
             "module_name": "QRReadCreate",
             "visible": true,
             "options": false,
