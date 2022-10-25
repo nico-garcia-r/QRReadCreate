@@ -1,8 +1,8 @@
 {
-    "author":"David Cuello",
-    "description": "Obtiene información de Codigo QR, Crea codigo QR",
+    "author":"David Cuello - Nicolas Garcia",
+    "description": "Módulo para crear y leer códigos QR",
     "disclaimer":"THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-    "version":"2.0",
+    "version":"2.1.1",
     "license": "MIT",
     "homepage":"http://rocketbot.co/",
     "linux": true,
@@ -17,38 +17,48 @@
       "title": {
         "en": "Create and read QR code",
         "es": "Crea y lee códigos QR",
-        "cn": "Create and read QR code"
+        "pr": "Crie e leia códigos QR"
     },
     "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNDgwIDQ4MCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDgwIDQ4MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggc3R5bGU9ImZpbGw6I0ZGRjdEOTsiIGQ9Ik04LDhoNDY0djQ2NEg4Vjh6Ii8+DQo8Zz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNzhCOUVCOyIgZD0iTTExMiw0OEg0OHY2NGg2NFY0OHoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNzhCOUVCOyIgZD0iTTM2OCwxMTJoNjRWNDhoLTY0VjExMnoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNzhCOUVCOyIgZD0iTTExMiwzNjhINDh2NjRoNjRWMzY4eiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik00MCw0OHY2NGMwLDQuNDE4LDMuNTgyLDgsOCw4aDY0YzQuNDE4LDAsOC0zLjU4Miw4LThWNDhjMC00LjQxOC0zLjU4Mi04LTgtOEg0OA0KCQlDNDMuNTgyLDQwLDQwLDQzLjU4Miw0MCw0OHogTTU2LDU2aDQ4djQ4SDU2VjU2eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMzY4LDEyMGg2NGM0LjQxOCwwLDgtMy41ODIsOC04VjQ4YzAtNC40MTgtMy41ODItOC04LThoLTY0Yy00LjQxOCwwLTgsMy41ODItOCw4djY0DQoJCUMzNjAsMTE2LjQxOCwzNjMuNTgyLDEyMCwzNjgsMTIweiBNMzc2LDU2aDQ4djQ4aC00OFY1NnoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojMzUzNTM1OyIgZD0iTTExMiwzNjBINDhjLTQuNDE4LDAtOCwzLjU4Mi04LDh2NjRjMCw0LjQxOCwzLjU4Miw4LDgsOGg2NGM0LjQxOCwwLDgtMy41ODIsOC04di02NA0KCQlDMTIwLDM2My41ODIsMTE2LjQxOCwzNjAsMTEyLDM2MHogTTEwNCw0MjRINTZ2LTQ4aDQ4VjQyNHoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojMzUzNTM1OyIgZD0iTTcyLDcyaDE2djE2SDcyVjcyeiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMTYsMTZoNjRWMEg4QzMuNTgyLDAsMCwzLjU4MiwwLDh2NzJoMTZWMTZ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0xNiw0MDBIMHY3MmMwLDQuNDE4LDMuNTgyLDgsOCw4aDcydi0xNkgxNlY0MDB6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik00NzIsMGgtNzJ2MTZoNjR2NjRoMTZWOEM0ODAsMy41ODIsNDc2LjQxOCwwLDQ3MiwweiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNNDY0LDQ2NGgtNDh2MTZoNTZjNC40MTgsMCw4LTMuNTgyLDgtOHYtNzJoLTE2VjQ2NHoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojMzUzNTM1OyIgZD0iTTM5Miw3MmgxNnYxNmgtMTZWNzJ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik03MiwzOTJoMTZ2MTZINzJWMzkyeiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMTM2LDcyaDE2djE2aC0xNlY3MnoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojMzUzNTM1OyIgZD0iTTI0OCw3MmgxNnYxNmgtMTZWNzJ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yODAsNzJ2MzJoMzJWODhoLTE2VjcySDI4MHoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojMzUzNTM1OyIgZD0iTTE2OCw3MnYxNmgxNlY3MlY1NmgxMjh2MTZoMTZWNTZWNDBIMTUydjE2aDE2VjcyeiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMTM2LDEwNGgxNnYzMmgtMTZWMTA0eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMTUyLDEzNmgxNnYxNmgtMTZWMTM2eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMTY4LDEwNHYxNmgxNnYxNmgzMnYtMzJoOFY4OGg4VjcyaC0zMnYxNmg4djE2SDE2OHoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojMzUzNTM1OyIgZD0iTTIzMiwxMjBoMTZ2MTZoLTE2VjEyMHoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojMzUzNTM1OyIgZD0iTTMyMCwxNjh2MzJoMTZ2LTE2aDE2di0xNkgzMjB6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yNDgsMTA0aDE2djE2aC0xNlYxMDR6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0xNjgsMzc2aDMydi0xNmgtMTZ2LTE2aC0xNlYzNzZ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0zMjgsODhoMTZ2MTZoLTE2Vjg4eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMzIwLDEyMGgzMnYzMmgtMzJWMTIweiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNNDAsMjQ4djgwaDE2di02NGgxNnYtMTZINDB6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik00MCwxMzZoODB2MTZINDBWMTM2eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNNzIsMTY4SDQwdjQ4aDE2di0xNmgxNlYxNjh6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yMDAsMjQ4di0xNmgxNnYtMzJoMTZ2LTE2aDE2di0xNmgtMTZ2LTE2aC0xNnYxNnYxNmgtMTZ2LTE2aC0zMnYzMmgxNnY0OEgyMDB6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0xMzYsNDQwaDE2di0xNmgyNHYxNmgxNnYtMTZoOHYtMTZoLTQ4di0xNmgtMTZWNDQweiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMzA0LDI3MnYtMTZoMTZ2LTE2aDE2di0zMmgtNDh2MzJoLTE2djE2aDE2djE2SDMwNHoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojMzUzNTM1OyIgZD0iTTI4MCwxNzZoMTZ2LTE2aC0xNnYtMTZoLTE2djQ4aDE2VjE3NnoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojMzUzNTM1OyIgZD0iTTg4LDE2OGgzMnYxNkg4OFYxNjh6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0xMzYsMTY4aDE2djE2aC0xNlYxNjh6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik04OCwyNDhoMTZ2MTZIODhWMjQ4eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMTM2LDI2NGgxNnYxNmgtMTZWMjY0eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMTUyLDI0OGgxNnYxNmgtMTZWMjQ4eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMTUyLDM3NmgxNnYxNmgtMTZWMzc2eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNNzIsMjE2aDE2djE2SDcyVjIxNnoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojMzUzNTM1OyIgZD0iTTg4LDIwMGgzMnYxNkg4OFYyMDB6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0xMjAsMjE2aDE2djE2aC0xNlYyMTZ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yNDgsMjA4aDE2djE2aC0xNlYyMDh6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yMzIsMjI0aDE2djE2aC0xNlYyMjR6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yNTYsMjY0aDE2djE2aC0xNlYyNjR6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0zNjAsMjQ4aDMydjE2aC0zMlYyNDh6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0zOTIsMjY0aDE2djE2aC0xNlYyNjR6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yMjQsMjY0aDE2djE2aC0xNlYyNjR6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yMTYsMjY0aC0zMnYxNmgtMTZ2MTZoMzJ2LTE2aDE2VjI2NHoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojMzUzNTM1OyIgZD0iTTIzMiw0MDh2MTZoLTE2djE2aDMydi0xNmgxNnYtMTZIMjMyeiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMzEyLDQwOHYxNmgtMTZ2MTZoMzJ2LTE2aDE2di0xNkgzMTJ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0zODQsMTY4di0xNmgxNnYtMTZoLTMydjE2aC0xNnYxNkgzODR6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yNDAsMzIwaDE2djE2aC0xNlYzMjB6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yNDAsMzUyaDE2djE2aC0xNlYzNTJ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yMTYsMzkyaDE2djE2aC0xNlYzOTJ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yMjQsMzIwdi0xNmgtMTZ2MTZ2MTZoMTZWMzIweiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMjU2LDM2OGgxNnYxNmgtMTZWMzY4eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNMzc2LDQyNGgtMzJ2MTZoNDh2LTMyaC0xNlY0MjR6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0zNzYsMzc2aDE2djE2aC0xNlYzNzZ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0zNDQsMzc2aDE2djE2aC0xNlYzNzZ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0zMTIsMzc2aDE2djE2aC0xNlYzNzZ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0zMjgsMzYwaDE2djE2aC0xNlYzNjB6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yODAsNDA4aDE2djE2aC0xNlY0MDh6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0xMzYsMjMyaDE2djE2aC0xNlYyMzJ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik00MjQsNDQwaDE2di00OGgtMzJ2MTZoMTZWNDQweiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNNDA4LDM2MGgxNnYxNmgtMTZWMzYweiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNNDQwLDM0NHYtNDhoLTE2djMyaC0xNnYxNkg0NDB6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik00MjQsMjY0aDE2djE2aC0xNlYyNjR6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik00NDAsMTM2aC0xNnY3MmgtMzJ2LTE2aC0zMnYzMmg2NHYyNGgxNlYxMzZ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0yNzIsMzUyaDQ4di0zMmgtMTZ2LTMyaC00OHYzMmgxNlYzNTJ6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzM1MzUzNTsiIGQ9Ik0xMzYsMjk2di0xNkg3MnY2NGgzMnYtMTZIODh2LTE2aDMydjQ4aDE2di0xNmgzMnYtMTZoLTE2di0xNmgxNnYtMTZIMTM2eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiMzNTM1MzU7IiBkPSJNNDA4LDI5NmgtMzJ2LTE2aC0zMnYzMmgxNnY0OGgxNnYtMTZoMTZ2LTMyaDE2VjI5NnoiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K",
     "children": [
-
         {
-            "en": {
-                "title": "ReadQR",
-                "description": "Read QR from Png File",
-                "title_options": "",
-                "options":null
-            },
             "es": {
                 "title": "ReadQR",
                 "description": "Lee un código QR a partir de un archivo PNG",
                 "title_options": "Seleccione una opción",
                 "options": null
             },
+            "en": {
+                "title": "ReadQR",
+                "description": "Read a QR code from a PNG file",
+                "title_options": "",
+                "options":null
+            },
+            "pr": {
+                "title": "ReadQR",
+                "description": "Lê um código QR a partir de um arquivo PNG",
+                "title_options": "Selecione uma opção",
+                "options": null
+            },
             "form": {
                 "css": "modal-lg",
                 "inputs": [
-
                     {
                         "type": "file_select",
                         "placeholder": {
                             "es": "C:/Users/usuario/Desktop/archivo.png",
-                            "en": "Path",
-                            "cn": "Path"
+                            "en": "C:/Users/user/Desktop/file.png",
+                            "pr": "C:/Users/usuario/Desktop/arquivo.png"
                         },
                         "title": {
-                            "es": "Ruta del QR en PNG ",
-                            "en": "Path to QR PNG file"
+                            "es": "Ruta del QR en PNG",
+                            "en": "Path of QR in PNG",
+                            "pr": "Caminho do QR em PNG"
+                        },
+                        "description": {
+                            "es": "Seleccione el archivo PNG que contiene el código QR",
+                            "en": "Select the PNG file that contains the QR code",
+                            "pr": "Selecione o arquivo PNG que contém o código QR"
                         },
                         "id": "path",
                         "css": "col-md-12"
@@ -57,15 +67,23 @@
                         "type": "input",
                         "placeholder": {
                             "es": "variable",
-                            "en": "var"
+                            "en": "variable",
+                            "pr": "variável"
                         },
                         "title": {
                             "es": "Asignar resultado a variable",
-                            "en": "Result to var "
+                            "en": "Assign result to variable",
+                            "pr": "Atribuir resultado a variável"
+                        },
+                        "description": {
+                            "es": "Asigna el contenido del código qr a una variable",
+                            "en": "Assign the content of the qr code to a variable",
+                            "pr": "Atribui o conteúdo do código qr a uma variável"
                         },
                            "help": {
                             "es": "La variable debe ir sin {}",
-                            "en": "write a variable name without {}"
+                            "en": "The variable must go without {}",
+                            "pr": "A variável deve ir sem {}"
                         },
                         "id": "result",
                         "remove_vars": true,
@@ -85,33 +103,45 @@
             "windows":true,
             "mac":true,
             "docker":true
-        },{
-            "en": {
-                "title": "CreateQR",
-                "description": "Create QR and save to Png File",
-                "title_options": "",
-                "options":null
-            },
+        },
+        {
             "es": {
                 "title": "CreateQR",
                 "description": "Crea un código QR y lo guarda en un archivo PNG",
                 "title_options": "Seleccione una opción",
                 "options": null
             },
+            "en": {
+                "title": "CreateQR",
+                "description": "Create a QR code and save it to a PNG file",
+                "title_options": "Select an option",
+                "options":null
+            },
+            "pr": {
+                "title": "CreateQR",
+                "description": "Cria um código QR e salva em um arquivo PNG",
+                "title_options": "Selecione uma opção",
+                "options": null
+            },
             "form": {
                 "css": "modal-lg",
                 "inputs": [
-
                     {
                         "type": "file_new",
                         "placeholder": {
                             "es": "C:/Users/usuario/Desktop/archivo.png",
-                            "en": "Path",
-                            "cn": "Path"
+                            "en": "C:/Users/user/Desktop/file.png",
+                            "pr": "C:/Users/usuario/Desktop/arquivo.png"
                         },
                         "title": {
-                            "es": "Ruta del PNG donde almacenar el QR",
-                            "en": "Path to QR PNG file output"
+                            "es": "Ruta donde se almacenará la imagen",
+                            "en": "Path where the image will be stored",
+                            "pr": "Caminho onde a imagem será armazenada"
+                        },
+                        "description": {
+                            "es": "Ruta donde se almacenará la imagen PNG con el código QR generado",
+                            "en": "Path where the PNG image with the generated QR code will be stored",
+                            "pr": "Caminho onde a imagem PNG com o código QR gerado será armazenada"
                         },
                         "id": "path",
                         "css": "col-md-12"
@@ -119,12 +149,19 @@
                     {
                         "type": "input",
                         "placeholder": {
-                            "es": "texto en QR",
-                            "en": "text on QR"
+                            "es": "htps://rocketbot.com",
+                            "en": "htps://rocketbot.com",
+                            "pr": "htps://rocketbot.com"
                         },
                         "title": {
                             "es": "Escriba el texto del QR",
-                            "en": "Text to generate QR Code"
+                            "en": "Write the QR text",
+                            "pr": "Escreva o texto do QR"
+                        },
+                        "description": {
+                            "es": "Escriba el texto que se convertirá en código QR",
+                            "en": "Write the text that will be converted into QR code",
+                            "pr": "Escreva o texto que será convertido em código QR"
                         },
                         "id": "text",
                         "css": "col-md-12"
@@ -145,32 +182,43 @@
             "docker":true
         },
         {
-            "en": {
-                "title": "Read Barcode",
-                "description": "Read Barcode from Png File",
-                "title_options": "",
-                "options":null
-            },
             "es": {
                 "title": "Lector de códigos de barras",
-                "description": "Lee un código de barras a partir de un archivo PNG",
+                "description": "Lee un código de barras a partir de un archivo PNG o JPG",
                 "title_options": "Seleccione una opción",
                 "options": null
+            },
+            "en": {
+                "title": "Barcode reader",
+                "description": "Read a barcode from a PNG or JPG file",
+                "title_options": "Select an option",
+                "options":null
+            },
+            "pr": {
+                "title": "Leitor de código de barras",
+                "description": "Leia um código de barras de um arquivo PNG ou JPG",
+                "title_options": "Selecione uma opção",
+                "options":null
             },
             "form": {
                 "css": "modal-lg",
                 "inputs": [
-
                     {
                         "type": "file_select",
                         "placeholder": {
                             "es": "C:/Users/usuario/Desktop/archivo.png",
-                            "en": "Path",
-                            "cn": "Path"
+                            "en": "C:/Users/user/Desktop/file.png",
+                            "pr": "C:/Users/usuario/Desktop/arquivo.png"
                         },
                         "title": {
-                            "es": "Ruta del código de barras en PNG ",
-                            "en": "Path to Barcode PNG file"
+                            "es": "Ruta del archivo PNG",
+                            "en": "PNG file path",
+                            "pr": "Caminho do arquivo PNG"
+                        },
+                        "description": {
+                            "es": "Ruta del archivo PNG con el código de barras",
+                            "en": "PNG file path with the barcode",
+                            "pr": "Caminho do arquivo PNG com o código de barras"
                         },
                         "id": "path",
                         "css": "col-md-12"
@@ -179,15 +227,23 @@
                         "type": "input",
                         "placeholder": {
                             "es": "variable",
-                            "en": "var"
+                            "en": "variable",
+                            "pr": "variável"
                         },
                         "title": {
                             "es": "Asignar resultado a variable",
-                            "en": "Result to var "
+                            "en": "Assign result to variable",
+                            "pr": "Atribuir resultado a variável"
                         },
-                           "help": {
+                        "description": {
+                            "es": "Asigna el resultado del código de barras a una variable",
+                            "en": "Assigns the barcode result to a variable",
+                            "pr": "Atribui o resultado do código de barras a uma variável"
+                        },
+                        "help": {
                             "es": "La variable debe ir sin {}",
-                            "en": "write a variable name without {}"
+                            "en": "The variable must go without {}",
+                            "pr": "A variável deve ir sem {}"
                         },
                         "id": "result",
                         "remove_vars": true,
