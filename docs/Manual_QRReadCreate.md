@@ -1,15 +1,13 @@
 # Create and read QR code
   
-Module to create and read QR code
-
-*Read this in other languages: [English](Manual_QRReadCreate.md), [Portugues](Manual_QRReadCreate.pr.md), [Español](Manual_QRReadCreate.es.md).*
+Module to create and read QR code  
   
+*Read this in other languages: [English](Manual_QRReadCreate.md), [Portugues](Manual_QRReadCreate.pr.md), [Español](Manual_QRReadCreate.es.md).*
+
 ![banner](imgs/Banner_QRReadCreate.png)
 ## How to install this module
   
 __Download__ and __install__ the content in 'modules' folder in Rocketbot path  
-
-
 
 ## Description of the commands
 
@@ -32,6 +30,14 @@ Create a QR code and save it to a PNG file
 ### Barcode reader
   
 Read a barcode from a PNG or JPG file
+|Parameters|Description|example|
+| --- | --- | --- |
+|PNG file path|PNG file path with the barcode|C:/Users/user/Desktop/file.png|
+|Assign result to variable|Assigns the barcode result to a variable|variable|
+
+### PDF417 barcode reader
+  
+Read a PDF417 barcode from an image file. IMPORTANT: Java must be installed to use it.
 |Parameters|Description|example|
 | --- | --- | --- |
 |PNG file path|PNG file path with the barcode|C:/Users/user/Desktop/file.png|
